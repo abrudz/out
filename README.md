@@ -13,3 +13,7 @@ Move and resize session and output panes as wanted.
 Hover mouse over output to see meta-info, or double-click to temporarily insert it for copying.
 
 Run `⎕SE.Out.cls` to clear the screen.
+
+You may want to experiment with editing `('Posn'(0 17))('Size'(107 103))` in `init.aplf` to adjust initial position and size.
+
+To make the changes permanent, save your session file with `2⎕NQ⎕SE'FileWrite'`.
