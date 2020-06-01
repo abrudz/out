@@ -1,0 +1,4 @@
+ Err dmx;title;content
+ title←general,∊(⊢T⍕∘dmx.⍎)¨'DM' 'EN' 'Message'~⍨dmx.⎕NL ¯2
+ content←(⊂dmx.(OSError{⍵,2⌽(×≢3⊃⍺)/'") ("',3⊃⍺}Message{⍵,⍺,⍨': '/⍨×≢⍺}⊃DM)),1↓dmx.DM
+ 'e'Append title content

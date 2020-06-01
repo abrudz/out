@@ -1,0 +1,6 @@
+ init
+ hr←⎕NEW'HTMLRenderer'(('Coord' 'Prop')('Posn'(0 17))('Size'(107 103))('Caption' 'Dyalog Session Output'))
+ cls
+ 'dft' 'disp'⎕CY'dfns'
+ ⎕SE ⎕WS'Event' 'SessionPrint' 'Print'
+ #.⎕TRAP←0 'E'('.Err ⎕DMX',⍨⍕⎕THIS)

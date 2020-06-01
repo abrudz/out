@@ -1,0 +1,10 @@
+ cls;html
+ html←''
+ html,←'<html onmouseout="S=true" onmouseover="S=false">'
+
+ html,←'<style>pre{margin:0;font-family:"APL385 Unicode";opacity:0.8;color:#fff}'
+ html,←'pre:hover{opacity:1}body{background:#222}.e{color:#f77}.t{color:#7f7}</style>'
+
+ html,←'<script>S=true;setInterval(x=>{if(S){'
+ html,←'window.scrollTo({top:document.body.scrollHeight,left:0/*,behavior:"smooth"*/})}},100)</script>'
+ hr.HTML←html

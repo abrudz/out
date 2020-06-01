@@ -1,0 +1,8 @@
+ class Append(title content);html
+ html←'<pre class="',class,'" title="','"'⎕R'\&#34;'⊢5↓title
+
+⍝.parentNode.insertBefore(newNode, referenceNode.nextSibling)
+ html,←'" ondblclick="this.insertAdjacentHTML(`afterend`,`<pre class=''t''>${this.title}</pre>`)'
+ html,←'">',(,¨'<' '&')⎕R'\&lt;' '\&amp;'⍠'ResultText' 'Simple'↓↑content
+ html,←'</pre>'
+ hr.HTML,←html

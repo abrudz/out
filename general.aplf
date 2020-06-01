@@ -1,0 +1,12 @@
+ title←general;from;code
+ title←'Time'T'-- ::.'@(2+3×⍳6)∊⍕¨⎕TS+0,1000,⍨5⍴100
+ :If 2=≢⎕SI ⍝ from session
+     from←2⊃⎕NSI
+     code←⊃¯2↑⎕SE.Log
+ :Else
+     from←(3⊃⎕XSI),'[',(⍕3⊃⎕LC,0),']'
+     code←(1+3⊃⎕LC)⊃(2⊃⎕RSI).⎕NR 3⊃⎕SI
+ :EndIf
+ title,←'From'T from
+ title,←'Code'T{(∨\' '≠⍵)/⍵}code
+ title,←'Thread'T⍕⎕TID

@@ -1,0 +1,26 @@
+ a Print e;title;nc;content
+ title←general
+ :Select ⊃⎕NC'a'
+ :CaseList 1 2 ⍝ label/var/⎕OR
+     :If ⍬≡⍴a
+     :AndIf 1=≡a ⍝ ⎕OR
+         (nc content)←a{fo←⍺⍺ ⋄ (⎕NC∘⊂,⊂∘⎕VR)'fo'}0
+         title,←'Class'T⍕nc
+         :If 0.3=1|nc ⍝ tacit
+             content←a dft 0
+         :EndIf
+     :Else
+         title,←'Shape'T⍕⍴a
+         title,←'Depth'T⍕≡a
+         title,←'Type'T⍕⎕DR a
+         title,←'Def'T{0::⍕⍵ ⋄ ⎕SE.Dyalog.Utils.repObj ⍵}a
+         content←disp a
+     :EndIf
+ :Case 9 ⍝ obj
+     title,←'Vars'T 1↓∊' ',¨a.⎕NL ¯2
+     title,←'Fns'T 1↓∊' ',¨a.⎕NL ¯3
+     title,←'Ops'T 1↓∊' ',¨a.⎕NL ¯4
+     title,←'Objs'T 1↓∊' ',¨a.⎕NL ¯9
+     content←⍕a
+ :EndSelect
+ ''Append title content
