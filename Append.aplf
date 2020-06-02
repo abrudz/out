@@ -1,8 +1,9 @@
  class Append(title content);html
  html←'<pre class="',class,'" title="','"'⎕R'\&#34;'⊢5↓title
 
-⍝.parentNode.insertBefore(newNode, referenceNode.nextSibling)
- html,←'" ondblclick="this.insertAdjacentHTML(`afterend`,`<pre class=''t''>${this.title}</pre>`)'
+ html,←'" onclick="try{document.getElementById(this.id+`x`).remove()}'
+ html,←'catch{this.insertAdjacentHTML(`afterend`,`<pre class=''t'' id=''${this.id+`x`}''>${this.title}</pre>`)}" '
+ html,←'id="','t',⎕A[?⍴⍨26]
  html,←'">',(,¨'<' '&')⎕R'\&lt;' '\&amp;'⍠'ResultText' 'Simple'↓↑content
  html,←'</pre>'
  hr.HTML,←html

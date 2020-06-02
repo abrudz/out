@@ -1,5 +1,6 @@
  a Print e;title;nc;content
  title←general
+ title,←'Size'T⍕⎕SIZE'a'
  :Select ⊃⎕NC'a'
  :CaseList 1 2 ⍝ label/var/⎕OR
      :If ⍬≡⍴a
