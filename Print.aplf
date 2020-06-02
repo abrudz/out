@@ -1,4 +1,5 @@
  a Print e;title;nc;content
+ #.⎕TRAP←0 'E'('.Err ⎕DMX',⍨⍕⎕THIS)
  title←general
  title,←'Size'T⍕⎕SIZE'a'
  :Select ⊃⎕NC'a'
@@ -24,4 +25,4 @@
      title,←'Objs'T 1↓∊' ',¨a.⎕NL ¯9
      content←⍕a
  :EndSelect
- ''Append title content
+ 'output'Append title content

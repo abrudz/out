@@ -1,0 +1,26 @@
+:Namespace config
+    :Section window  ⍝ setting for output pane
+        caption←'Output' ⍝ title bar text
+        coord←'Prop'     ⍝ co-ordinate system
+        posn←0 17        ⍝ initial position
+        size←107 103     ⍝ initial size
+    :EndSection
+    :Namespace data  ⍝ appearance and behaviour
+        clear←0          ⍝ clear log for every new output
+        theme←'dark'     ⍝ visual theme
+        :Namespace dark
+            background←'#222'      
+            output←'#fff'
+            error←'#f70'
+            meta←'#77f'
+            borders←'#555' '#444' '#333' ⍝ hover normal meta
+        :EndNamespace
+        :Namespace light
+            background←'#fff'      
+            output←'#000'
+            error←'#730'
+            meta←'#337'
+            borders←'#999' '#bbb' '#ddd' ⍝ hover normal meta
+        :EndNamespace
+    :EndNamespace
+:EndNamespace

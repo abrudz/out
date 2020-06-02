@@ -1,9 +1,8 @@
  class Append(title content);html
- html←'<pre class="',class,'" title="','"'⎕R'\&#34;'⊢5↓title
-
- html,←'" onclick="try{document.getElementById(this.id+`x`).remove()}'
- html,←'catch{this.insertAdjacentHTML(`afterend`,`<pre class=''t'' id=''${this.id+`x`}''>${this.title}</pre>`)}" '
- html,←'id="','t',⎕A[?⍴⍨26]
- html,←'">',(,¨'<' '&')⎕R'\&lt;' '\&amp;'⍠'ResultText' 'Simple'↓↑content
+ html←'<pre class="',class,'" title="'
+ html,←'"'⎕R'\&#34;'⊢5↓title
+ html,←'" onclick="C(event)" '
+ html,←'id="t',⎕A[?⍴⍨26],'">'
+ html,←(,¨'<' '&')⎕R'\&lt;' '\&amp;'⍠'ResultText' 'Simple'↓↑content
  html,←'</pre>'
- hr.HTML,←html
+ hr.ExecuteJavaScript'document.body.innerHTML',config.data.clear↓'+=',1 ⎕JSON html

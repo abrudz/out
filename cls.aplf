@@ -1,10 +1,34 @@
- cls;html
+ cls;html;theme
  html←''
  html,←'<html onmouseout="S=true" onmouseover="S=false">'
 
- html,←'<style>pre{margin:0;font-family:"APL385 Unicode";opacity:0.8;color:#fff}'
- html,←'pre:hover{opacity:1}body{background:#111}.e{color:#f70}.t{color:#77f}'
- html,←'[title^=T]{cursor:pointer}</style>'
- html,←'<script>S=true;setInterval(x=>{if(S){'
- html,←'window.scrollTo({top:document.body.scrollHeight,left:0/*,behavior:"smooth"*/})}},100)</script>'
+ theme←config.data.(⍎theme)
+
+ html,←'<style>'
+ html,←'body{margin:0;background:',theme.background,';color:',theme.output,'}'
+ html,←'pre{margin:0;border:0.5ex solid transparent;min-height:1em;padding-left:0.5ex;font-family:"APL385 Unicode";'
+ html,←'border-left:1ex solid ',(2⊃theme.borders),'}'
+ html,←'.error{color:',theme.error,'}'
+ html,←'.meta{border-top:none;margin-top:-0.5ex;color:',theme.meta,';border-left-color:',(3⊃theme.borders),'}'
+ html,←'.output:hover,.error:hover{border-left-color:',(⊃theme.borders),'}'
+ html,←'</style>'
+
+ html,←'<script>'
+ html,←'S=true;'
+ html,←'setInterval(x=>{if(S)window.scrollTo(0,document.body.scrollHeight)},100);'
+ html,←'C=e=>{'
+ html,←'  t=e.target;'
+ html,←'  if(e.ctrlKey){'
+ html,←'    try{document.getElementById(t.id+`x`).remove()}'
+ html,←'    catch{t.insertAdjacentHTML(`afterend`,`<pre class=''meta'' id=''${t.id+`x`}''>${t.title}</pre>`)}'
+ html,←'  };'
+ html,←'  if(e.altKey){'
+ html,←'    try{document.getElementById(t.id+`x`).remove()}'
+ html,←'    finally{t.remove()}'
+ html,←'  }'
+ html,←'}'
+ html,←'</script>'
+
+ html,←'<body onclick="if(event.altKey&&event.ctrlKey)this.innerHTML=``"></body>'
+
  hr.HTML←html

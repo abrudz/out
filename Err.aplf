@@ -1,4 +1,9 @@
  Err dmx;title;content
- title←general,∊(⊢T⍕∘dmx.⍎)¨'DM' 'EN' 'Message'~⍨dmx.⎕NL ¯2
- content←(⊂dmx.(OSError{⍵,2⌽(×≢3⊃⍺)/'") ("',3⊃⍺}Message{⍵,⍺,⍨': '/⍨×≢⍺}⊃DM)),1↓dmx.DM
- 'e'Append title content
+ :Trap 0
+     title←general,∊(⊢T⍕∘dmx.⍎)¨'DM' 'EM' 'HelpURL' 'Message'~⍨dmx.⎕NL ¯2
+     content←(⊂dmx.(Message{⍵,⍺,⍨': '/⍨×≢⍺}⊃DM)),1↓dmx.DM
+     'error'Append title content
+ :Else
+     #.⎕TRAP/⍨←0
+     ⎕SIGNAL⊂⎕DMX.(('EN'EN)('Message'Message))
+ :EndTrap

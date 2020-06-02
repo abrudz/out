@@ -1,0 +1,4 @@
+ stop
+ ⎕SE ⎕WS'Event'oldEvent
+ (# ⎕SE).⎕TRAP←oldTraps
+ ⎕EX'hr'

@@ -1,19 +1,25 @@
+# Split session input and output
+### *and give access to meta-data of output and errors*
+
+## Installation
+
 Requires Dyalog APL 17.1 or newer.
 
-Clone to:
-* `Documents\Dyalog APL Files\StartupSession\out` if on Windows
-* `$HOME/dyalog.files/StartupSession/out` everywhere else
+1. Clone to
+  * `Documents\Dyalog APL Files\StartupSession\out` if on Windows
+  * `$HOME/dyalog.files/StartupSession/out` everywhere else
+2. Start APL
+3. Run `⎕SE.out.init`  to start
 
-Start APL.
+You may want to run `⎕SE.out.init`  from a startup script.
 
-Run `⎕SE.Out.init`
+* Run `⎕SE.out.stop` to revert to normal session
+* Edit `config.apln`  to change settings
 
-Move and resize session and output panes as wanted.
+## Functionality
 
-Hover mouse over output to see meta-info, or double-click to temporarily insert it for copying.
-
-Run `⎕SE.Out.cls` to clear the screen.
-
-You may want to experiment with editing `('Posn'(0 17))('Size'(107 103))` in `init.aplf` to adjust initial position and size.
-
-To make the changes permanent, save your session file with `2⎕NQ⎕SE'FileWrite'`.
+* Hover mouse over output to see meta-info for a given output or error
+* Ctrl+click to toggle visibility of the meta-info below the output or error (for copying)
+* Alt+click to remove an output from the log
+* Ctrl+Alt+click or to remove all output
+* `⎕SE.out.cls` to reset display (e.g. if settings have changed)
