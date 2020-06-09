@@ -1,8 +1,8 @@
  class Append(title content);html
- html←'<pre class="',class,'" title="'
+ html←'<pre class="block ',class,'" title="'
  html,←'"'⎕R'\&#34;'⊢5↓title
  html,←'" onclick="C(event)" '
  html,←'id="t',⎕A[?⍴⍨26],'">'
- html,←(,¨'<' '&')⎕R'\&lt;' '\&amp;'⍠'ResultText' 'Simple'↓↑content
+ html,←'[─└┴┘├┼┤┌┬┐│]+'⎕R'<span class="box">&</span>'⊢(,¨'<' '&')⎕R'\&lt;' '\&amp;'⍠'ResultText' 'Simple'↓↑content
  html,←'</pre>'
- hr.ExecuteJavaScript'document.body.innerHTML',config.data.clear↓'+=',1 ⎕JSON html
+ hr.ExecuteJavaScript'document.body.innerHTML',config.data.single↓'+=',1 ⎕JSON html

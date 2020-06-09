@@ -1,20 +1,37 @@
- a Print e;title;nc;content
+ a Print e;title;nc;content;dr;Scale;t
  #.⎕TRAP←0 'E'('.Err ⎕DMX',⍨⍕⎕THIS)
  title←general
- title,←'Size'T⍕⎕SIZE'a'
+ t←⎕UCS 9
+
+ Scale←{
+     ⍵<1024:''
+     f←4⌊⌊1024⍟⍵
+     p←'k' 'M' 'G' 'T'⊃⍨f
+     1⌽')'t'(',(⍕⌊0.5+⍵÷1024*f),' ',p,'iB'
+ }
+ title,←'Size'T(⍕,' bytes',Scale)⎕SIZE'a'
+
  :Select ⊃⎕NC'a'
  :CaseList 1 2 ⍝ label/var/⎕OR
      :If ⍬≡⍴a
      :AndIf 1=≡a ⍝ ⎕OR
          (nc content)←a{fo←⍺⍺ ⋄ (⎕NC∘⊂,⊂∘⎕VR)'fo'}0
          title,←'Class'T⍕nc
+         title,←t'(','traditional' 'direct' 'tacit' '' '' 'external'⊃⍨10×1|nc
+         title,←')',⍨(3.3≠nc)/' ','function' 'operator'⊃⍨1+4=⌊nc
          :If 0.3=1|nc ⍝ tacit
              content←a dft 0
          :EndIf
      :Else
-         title,←'Shape'T⍕⍴a
-         title,←'Depth'T⍕≡a
-         title,←'Type'T⍕⎕DR a
+         title,←'Depth'T(⍕≡a),t'(',')',⍨'ragged' 'simple' 'simple' 'nested'⊃⍨2+¯1⌈2⌊≡a
+
+         title,←'Shape'T(⍕⍴a),'⍬'/⍨⍬≡⍴a
+         title,←1⌽')'t'(','scalar' 'vector' 'matrix'('D array',⍨⍕≢⍴a)⊃⍨4⌊1+≢⍴a
+
+         title,←'Type'T⍕dr←⎕DR a
+         title,←'-bit ',⍨t'(',⍕(⌊dr÷10)×1+(dr=326)∧∨/'64'⍷⊃# ⎕WG'APLVersion'
+         title,←')',⍨'character' 'Boolean' 'character' 'integer' '' 'float' 'pointer' 'decimal' '' 'complex'⊃⍨1+10|dr
+
          title,←'Def'T{0::⍕⍵ ⋄ ⎕SE.Dyalog.Utils.repObj ⍵}a
          content←disp a
      :EndIf

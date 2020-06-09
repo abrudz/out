@@ -6,7 +6,7 @@
         size←107 103     ⍝ initial size
     :EndSection
     :Namespace data  ⍝ appearance and behaviour
-        clear←0          ⍝ clear log for every new output
+        single←0         ⍝ clear log for every new output
         theme←'dark'     ⍝ visual theme
         :Namespace dark
             background←'#222'      

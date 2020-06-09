@@ -5,7 +5,7 @@
      code←⊃¯2↑⎕SE.Log
  :Else
      from←(3⊃⎕XSI),'[',(⍕3⊃⎕LC,0),']'
-     code←(1+3⊃⎕LC)⊃(2⊃⎕RSI).⎕NR 3⊃⎕SI
+     code←(1+3⊃⎕LC)⊃(2⊃⎕RSI).⎕NR 3⊃⎕SI~⊂''
  :EndIf
  title,←'From'T from
  title,←'Code'T{(∨\' '≠⍵)/⍵}code
