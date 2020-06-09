@@ -3,7 +3,7 @@
 
 ## Installation
 
-Requires Dyalog APL 17.1 or newer.
+Requires Dyalog APL 18.0 or newer.
 
 1. Clone to
   * `Documents\Dyalog APL Files\StartupSession\out` if on Windows
