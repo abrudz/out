@@ -1,6 +1,6 @@
 # Split session input and output
 ### *and give access to meta-data of output and errors*
-
+![out](out.png)
 ## Installation
 
 Requires Dyalog APL 18.0 or newer.
