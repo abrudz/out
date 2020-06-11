@@ -16,7 +16,6 @@
 
  html,←'<script>'
  html,←'S=true;'
- html,←'setInterval(x=>{if(S)window.scrollTo(0,document.body.scrollHeight)},100);'
  html,←'C=e=>{'
  html,←'  t=e.target.tagName==="SPAN"?e.target.parentNode:e.target;'
  html,←'  if(e.ctrlKey){'

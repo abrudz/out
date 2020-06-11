@@ -5,4 +5,4 @@
  html,←'id="t',⎕A[?⍴⍨26],'">'
  html,←'[─└┴┘├┼┤┌┬┐│]+'⎕R'<span class="box">&</span>'⊢(,¨'<' '&')⎕R'\&lt;' '\&amp;'⍠'ResultText' 'Simple'↓↑content
  html,←'</pre>'
- hr.ExecuteJavaScript'document.body.innerHTML',config.data.single↓'+=',1 ⎕JSON html
+ hr.ExecuteJavaScript('document.body.innerHTML',config.data.single↓'+=',1 ⎕JSON html),';window.scrollTo(0,document.body.scrollHeight)'
