@@ -1,5 +1,11 @@
  a Print e;title;nc;content;dr;Scale;t
- #.⎕TRAP←0 'E'('.Err ⎕DMX',⍨⍕⎕THIS)
+  :If {6::1 ⋄ 0⊣⍵.Type}hr ⍝ if window has been closed
+     stop                                       ⍝ reset everything
+     t←{2⊃((1⊃¨⍵)⍳⊂'SessionPrint')⊃⍵}oldEvent   ⍝ get the fn that would have been executed in the old state
+     ⍎'a ',t,' e'                               ⍝ and execute it
+     →0
+ :EndIf
+#.⎕TRAP←0 'E'('.Err ⎕DMX',⍨⍕⎕THIS)
  title←general
  t←⎕UCS 9
 
