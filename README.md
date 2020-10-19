@@ -7,7 +7,7 @@ Requires Dyalog APL 18.0 or newer.
 
 1. Clone to
   * `Documents\Dyalog APL-64 18.0 Unicode Files\StartupSession\out` if on Windows
-  * `$HOME/dyalog.18U64.files/StartupSession/out` everywhere else
+  * `$HOME/dyalog.180U64.files/StartupSession/out` everywhere else
 2. Start APL
 3. Run `⎕SE.out.init`  to start
 
